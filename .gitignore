@@ -1,4 +1,11 @@
-.vscode
+# untracked programs
 *.o
+*.a
+*.out
 philo
+#
+
+# folders
 pdf/
+.vscode
+#
