@@ -13,31 +13,28 @@
 NAME	= philo
 # CFLAGS	= -Wextra -Wall -Werror -g
 CFLAGS	= -g
-LIBFT	= ./libft
 PTF		= ./ft_printf
 
-HEADERS	= -I $(LIBFT) -I $(PTF)
+HEADERS	= -I $(PTF)
 
-SRCS	=	main.c
+SRCS	=	src/main.c
 
 OBJS	= ${SRCS:.c=.o}
 
 all: $(NAME) 
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) -o $(NAME) -L. $(LIBFT)/libft.a
+	@$(CC) $(CFLAGS) $(OBJS) $(HEADERS) -o $(NAME)
 
 %.o: %.c $(HEADER_FILE)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)  && printf "Compiling: $(notdir $<)"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)  && printf "Compiling: $(notdir $<) \n"
+	@printf "\033[0;32m[OK]\033[0m\n"
 
 clean:
 	@rm -f $(OBJS)
-	@make clean -C $(LIBFT)
 
 fclean: clean
 	@rm -rf $(NAME)
-	@make fclean -C $(LIBFT)
 
 re: clean all
 
