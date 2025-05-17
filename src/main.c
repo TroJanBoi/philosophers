@@ -6,11 +6,15 @@
 /*   By: pesrisaw <pesrisaw@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 16:30:44 by pesrisaw          #+#    #+#             */
-/*   Updated: 2025/05/17 16:40:14 by pesrisaw         ###   ########.fr       */
+/*   Updated: 2025/05/17 16:42:06 by pesrisaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// format input of the test
+// [number of philosophers] [time to die] [time to eat] ->
+// -> [time to sleep] [number of times each philosopher must eat]
 
 void	state_philosopher(int id, int state)
 {
