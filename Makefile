@@ -21,6 +21,7 @@ SRCS	=	_debug/debug_nop.c \
 			src/main.c \
 			src/invalid.c \
 			src/thread_create.c \
+			src/time.c \
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -6,15 +6,15 @@
 void	state_philosopher(int id, int state)
 { 
 	if (state == TAKEN_FORK)
-		printf("timestamp_in_ms X has taken a fork\n");
+		printf("%lld %d has taken a fork\n", timeval_to_ms(), id);
 	else if (state == EATING)
-		printf("timestamp_in_ms X is eating\n");
+		printf("%lld %d is eating\n", timeval_to_ms(), id);
 	else if (state == SLEEPING)
-		printf("timestamp_in_ms X is sleeping\n");
+		printf("%lld %d is sleeping\n", timeval_to_ms(), id);
 	else if (state == THINKING)
-		printf("timestamp_in_ms X is thinking\n");
+		printf("%lld %d is thinking\n", timeval_to_ms(), id);
 	else if (state == DIED)
-		printf("timestamp_in_ms X died\n");
+		printf("%lld %d died\n", timeval_to_ms(), id);
 }
 
 void	*thread_philos(void *arg)
@@ -31,18 +31,19 @@ int		main(int argc, char **argv)
 {
 	t_philo		*philos;
 	int 		nOp;
-
+	
 	if (argc < 5 || argc > 6)
-		ft_error("Error: Invalid number of arguments\n");
+	ft_error("Error: Invalid number of arguments\n");
 	nOp = atoi(argv[1]);
 	printf("Number of philosophers: %d\n", nOp);
 	philos = malloc(sizeof(t_philo) * nOp);
 	if (!philos)
-		ft_error("Error: Memory allocation failed\n");
+	ft_error("Error: Memory allocation failed\n");
 	if (create_threads(nOp, philos) != 0)
 	{
 		free(philos);
 		ft_error("Error: Thread creation failed\n");
 	}
-	print_debug_nop(philos, nOp);
+	thread_philos(philos);
+	// print_debug_nop(philos, nOp);
 }
