@@ -19,15 +19,15 @@
 void	state_philosopher(int id, int state)
 {
 	if (state == TAKEN_FORK)
-		printf("%lld %d has taken a fork\n", timeval_to_ms(), id);
+		printf("%.2lld %d has taken a fork\n", timeval_to_ms(), id);
 	else if (state == EATING)
-		printf("%lld %d is eating\n", timeval_to_ms(), id);
+		printf("%.2lld %d is eating\n", timeval_to_ms(), id);
 	else if (state == SLEEPING)
-		printf("%lld %d is sleeping\n", timeval_to_ms(), id);
+		printf("%.2lld %d is sleeping\n", timeval_to_ms(), id);
 	else if (state == THINKING)
-		printf("%lld %d is thinking\n", timeval_to_ms(), id);
+		printf("%.2lld %d is thinking\n", timeval_to_ms(), id);
 	else if (state == DIED)
-		printf("%lld %d died\n", timeval_to_ms(), id);
+		printf("%.2lld %d died\n", timeval_to_ms(), id);
 }
 
 void	*thread_philos(void *arg)
